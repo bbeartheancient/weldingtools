@@ -1,0 +1,319 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#tabbar {
+  display: flex;
+  background: #34495e;
+  border-bottom: 2px solid #2c3e50;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: #bdc3c7;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background: #2c3e50;
+  color: #ecf0f1;
+}
+
+.tab.active {
+  background: #3498db;
+  color: #fff;
+}
+
+#content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: calc(100vh - 180px);
+}
+
+.module-panel {
+  display: none;
+}
+
+.module-panel.active {
+  display: block;
+}
+
+/* Game area */
+.game-area {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.game-area canvas {
+  display: block;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.caliper-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.caliper-wrap canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+/* Question display */
+.question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 12px 16px;
+  background: #f0f7fc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.question .value {
+  font-size: 1.4rem;
+  color: #e74c3c;
+}
+
+/* Engine HUD */
+.engine-hud {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.hud-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-label {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hud-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.strikes {
+  display: flex;
+  gap: 4px;
+}
+
+.strike {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  transition: background 0.3s;
+}
+
+.strike.active {
+  background: #e74c3c;
+}
+
+.game-over {
+  display: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e74c3c;
+  text-align: center;
+  padding: 16px;
+  background: #fdeaea;
+  border-radius: 4px;
+}
+
+.game-over.show {
+  display: block;
+}
+
+/* Buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #3498db;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #2980b9;
+}
+
+.btn-success {
+  background: #27ae60;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background: #229954;
+}
+
+.btn-warning {
+  background: #f39c12;
+  color: #fff;
+}
+
+/* Settings */
+.settings-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #7f8c8d;
+}
+
+.settings-panel {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  transition: right 0.3s;
+  z-index: 100;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.settings-panel.open {
+  right: 0;
+}
+
+.settings-form .settings-row {
+  margin-bottom: 16px;
+}
+
+.settings-row label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 4px;
+}
+
+.settings-row select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.95rem;
+  padding: 4px 8px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.radio-label:hover {
+  background: #e8e8e8;
+}
+
+.apply-btn {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Footer */
+footer {
+  background: #ecf0f1;
+  padding: 12px 24px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #7f8c8d;
+}
+
+/* Feedback */
+.feedback {
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.feedback.correct {
+  background: #d4edda;
+  color: #155724;
+}
+
+.feedback.wrong {
+  background: #f8d7da;
+  color: #721c24;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welding & Measuring Trainer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Welding & Measuring Trainer</h1>
+  </header>
+  <nav id="tabbar">
+    <button class="tab active" data-tab="tape">Tape Measure</button>
+    <button class="tab" data-tab="caliper">Dial Caliper</button>
+    <button class="tab" data-tab="weld">Welding Symbols</button>
+  </nav>
+  <div id="content">
+    <div class="module-panel active" id="panel-tape"></div>
+    <div class="module-panel" id="panel-caliper"></div>
+    <div class="module-panel" id="panel-weld"></div>
+  </div>
+  <footer>
+    <p class="about">Built for classroom use.</p>
+  </footer>
+  <script src="core.js"></script>
+  <script src="tape-logic.js"></script>
+  <script src="tape.js"></script>
+  <script src="caliper-logic.js"></script>
+  <script src="caliper.js"></script>
+  <script src="weld.js"></script>
+</body>
+</html>
